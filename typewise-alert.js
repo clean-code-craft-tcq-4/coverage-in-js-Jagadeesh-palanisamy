@@ -50,7 +50,7 @@ function printStatement(statement){
   
   function sendToEmail(breachType) {
     const recepient = 'a.b@c.com';
-     toEmail = 'To: '+recepient;
+    const toEmail = 'To: '+recepient;
     if (breachType == 'TOO_LOW')
     tooLowEmail(toEmail);
     if (breachType == 'TOO_HIGH')
