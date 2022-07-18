@@ -26,4 +26,4 @@ function medActiveCooling(coolingType,temperatureInC){
  if(coolingType==='MED_ACTIVE_COOLING')
     return inferBreach(temperatureInC, 0, 40); 
  }
-module.exports ={inferBreach,classifyTemperatureBreach,passiveCooling,highActiveCooling,medActiveCooling}
+module.exports ={classifyTemperatureBreach}
