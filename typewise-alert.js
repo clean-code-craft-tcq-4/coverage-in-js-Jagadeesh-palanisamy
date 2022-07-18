@@ -6,7 +6,7 @@ async function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
   } else if (alertTarget == 'TO_EMAIL') {
     sendToEmail(breachType);
   }
- });
+ })};
 
 
 function sendToController(breachType) {
