@@ -9,21 +9,22 @@ function inferBreach(value, lowerLimit, upperLimit) {
 }
 function classifyTemperatureBreach(coolingType, temperatureInC) {
   let breachType='';
+   if(coolingType==='PASSIVE_COOLING')
 breachType = passiveCooling(coolingType,temperatureInC)
+ if(coolingType==='HI_ACTIVE_COOLING')
 breachType = highActiveCooling(coolingType,temperatureInC)
+ if(coolingType==='MED_ACTIVE_COOLING')
 breachType = medActiveCooling(coolingType,temperatureInC)
+console.log(breachType)
 return breachType;
 }
 function passiveCooling(coolingType,temperatureInC){
-  if(coolingType==='PASSIVE_COOLING')
   return inferBreach(temperatureInC, 0, 35);
 }
 function highActiveCooling(coolingType,temperatureInC){
-  if(coolingType==='HI_ACTIVE_COOLING')
      return inferBreach(temperatureInC, 0, 45);
 }
 function medActiveCooling(coolingType,temperatureInC){
- if(coolingType==='MED_ACTIVE_COOLING')
-    return inferBreach(temperatureInC, 0, 40); 
+return inferBreach(temperatureInC, 0, 40); 
  }
 module.exports ={classifyTemperatureBreach}
