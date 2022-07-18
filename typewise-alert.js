@@ -13,6 +13,7 @@ function sendToController(breachType) {
   const header = 0xfeed;
   const toPrint =`${header}`+' '+breachType;
   printStatement(toPrint);
+  return breachType;
 }
 
 function printStatement(statement){  
@@ -32,10 +33,12 @@ function printStatement(statement){
 function tooLowEmail(toEmail){
   printStatement(toEmail);
    printStatement('Hi, the temperature is too low');
+  return 'TOO_LOW'
   }
 function tooHighEmail(toEmail){
    printStatement(toEmail);
   printStatement('Hi, the temperature is too high');
+  return 'TOO_HIGH'
 }
 
 
