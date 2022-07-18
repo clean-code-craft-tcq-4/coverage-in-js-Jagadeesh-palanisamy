@@ -1,4 +1,3 @@
-const alerts = require('./typewise-alert');
 function inferBreach(value, lowerLimit, upperLimit) {
   if (value < lowerLimit) {
     return 'TOO_LOW';
@@ -15,7 +14,6 @@ breachType = highActiveCooling(coolingType,temperatureInC)
 breachType = medActiveCooling(coolingType,temperatureInC)
 return breachType;
 }
-
 function passiveCooling(coolingType,temperatureInC){
   if('PASSIVE_COOLING')
   return inferBreach(temperatureInC, 0, 35);
@@ -28,5 +26,4 @@ function medActiveCooling(coolingType,temperatureInC){
  if('MED_ACTIVE_COOLING')
  return inferBreach(temperatureInC, 0, 40); 
 }
-
 module.exports ={inferBreach,classifyTemperatureBreach,passiveCooling,highActiveCooling,medActiveCooling}
