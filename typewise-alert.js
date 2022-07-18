@@ -1,4 +1,11 @@
-
+function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
+  const breachType = classifyTemperatureBreach(batteryChar['coolingType'], temperatureInC);
+  if (alertTarget == 'TO_CONTROLLER') {
+    sendToController(breachType);
+  } else if (alertTarget == 'TO_EMAIL') {
+    sendToEmail(breachType);
+  }
+}
 function inferBreach(value, lowerLimit, upperLimit) {
   if (value < lowerLimit) {
     return 'TOO_LOW';
@@ -8,47 +15,55 @@ function inferBreach(value, lowerLimit, upperLimit) {
   }
   return 'NORMAL';
 }
-
 function classifyTemperatureBreach(coolingType, temperatureInC) {
-  let lowerLimit = 0;
-  let upperLimit = 0;
-  if (coolingType == 'PASSIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 35;
-  } else if (coolingType == 'HI_ACTIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 45;
-  } else if (coolingType == 'MED_ACTIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 40;
-  }
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+  let breachType='';
+breachType = passiveCooling(coolingType,temperatureInC)
+breachType = highActiveCooling(coolingType,temperatureInC)
+breachType = medActiveCooling(coolingType,temperatureInC)
+return breachType;
 }
 
-function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
-  const breachType = classifyTemperatureBreach(batteryChar['coolingType'], temperatureInC);
-  if (alertTarget == 'TO_CONTROLLER') {
-    sendToController(breachType);
-  } else if (alertTarget == 'TO_EMAIL') {
-    sendToEmail(breachType);
-  }
+function passiveCooling(coolingType,temperatureInC){
+  if('PASSIVE_COOLING')
+  return inferBreach(temperatureInC, 0, 35);
+}
+function highActiveCooling(coolingType,temperatureInC){
+  if('HI_ACTIVE_COOLING')
+  return inferBreach(temperatureInC, 0, 45);
+}
+function medActiveCooling(coolingType,temperatureInC){
+ if('MED_ACTIVE_COOLING')
+ return inferBreach(temperatureInC, 0, 40); 
 }
 
 function sendToController(breachType) {
   const header = 0xfeed;
-  console.log(`${header}, ${breachType}`);
+  const toPrint =`${header}`+' '+breachType;
+  printStatement(toPrint);
 }
 
-function sendToEmail(breachType) {
-  const recepient = 'a.b@c.com';
-  if (breachType == 'TOO_LOW') {
-    console.log(`To: ${recepient}`);
-    console.log('Hi, the temperature is too low');
-  } else if (breachType == 'TOO_HIGH') {
-    console.log(`To: ${recepient}`);
-    console.log('Hi, the temperature is too high');
+function printStatement(statement){
+  console.log(statement);
   }
+  
+  function sendToEmail(breachType) {
+    const recepient = 'a.b@c.com';
+     toEmail = 'To: '+recepient;
+    if (breachType == 'TOO_LOW')
+    tooLowEmail(toEmail);
+    if (breachType == 'TOO_HIGH')
+    tooHighEmail(toEmail);
 }
+
+function tooLowEmail(toEmail){
+  printStatement(toEmail);
+   printStatement('Hi, the temperature is too low');
+  }
+function tooHighEmail(toEmail){
+   printStatement(toEmail);
+  printStatement('Hi, the temperature is too high');
+}
+
 
 module.exports =
-    {inferBreach, classifyTemperatureBreach, checkAndAlert, sendToController, sendToEmail};
+   {checkAndAlert,inferBreach,classifyTemperatureBreach,passiveCooling,highActiveCooling,medActiveCooling,sendToController,printStatement,sendToEmail,tooLowEmail,tooHighEmail};
