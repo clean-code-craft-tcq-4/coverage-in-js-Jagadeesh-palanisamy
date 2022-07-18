@@ -1,12 +1,12 @@
 const breach = require('./classifyBreach');
-function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
-  const breachType = breach.classifyTemperatureBreach(batteryChar, temperatureInC);
-  if (alertTarget == 'TO_CONTROLLER') {
+async function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
+ breach.classifyTemperatureBreach(batteryChar, temperatureInC).then((breachType)=>{
+   if (alertTarget == 'TO_CONTROLLER') {
     sendToController(breachType);
   } else if (alertTarget == 'TO_EMAIL') {
     sendToEmail(breachType);
   }
-}
+ });
 
 
 function sendToController(breachType) {
