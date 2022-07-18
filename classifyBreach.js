@@ -8,7 +8,7 @@ function inferBreach(value, lowerLimit, upperLimit) {
   return 'NORMAL';
 }
 
-async function classifyTemperatureBreach(coolingType, temperatureInC) {
+ function classifyTemperatureBreach(coolingType, temperatureInC) {
   let breachType='';
 if(coolingType==='PASSIVE_COOLING'){
  breachType =  passiveCooling(coolingType, temperatureInC);
