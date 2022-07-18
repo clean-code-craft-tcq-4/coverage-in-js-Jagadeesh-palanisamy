@@ -15,20 +15,16 @@ breachType = medActiveCooling(coolingType,temperatureInC)
 return breachType;
 }
 function passiveCooling(coolingType,temperatureInC){
-  if('PASSIVE_COOLING'){
+  if(coolingType==='PASSIVE_COOLING')
   return inferBreach(temperatureInC, 0, 35);
   }
 }
 function highActiveCooling(coolingType,temperatureInC){
-  if('HI_ACTIVE_COOLING')
-  {
+  if(coolingType==='HI_ACTIVE_COOLING')
      return inferBreach(temperatureInC, 0, 45);
-  }
 }
 function medActiveCooling(coolingType,temperatureInC){
- if('MED_ACTIVE_COOLING'){
+ if(coolingType==='MED_ACTIVE_COOLING')
     return inferBreach(temperatureInC, 0, 40); 
  }
-
-}
 module.exports ={inferBreach,classifyTemperatureBreach,passiveCooling,highActiveCooling,medActiveCooling}
