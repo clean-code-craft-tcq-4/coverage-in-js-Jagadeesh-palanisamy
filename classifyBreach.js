@@ -8,21 +8,25 @@ function inferBreach(value, lowerLimit, upperLimit) {
   }
   return 'NORMAL';
 }
-
 function classifyTemperatureBreach(coolingType, temperatureInC) {
-  let lowerLimit = 0;
-  let upperLimit = 0;
-  if (coolingType == 'PASSIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 35;
-  } else if (coolingType == 'HI_ACTIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 45;
-  } else if (coolingType == 'MED_ACTIVE_COOLING') {
-    lowerLimit = 0;
-    upperLimit = 40;
-  }
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+  let breachType='';
+breachType = passiveCooling(coolingType,temperatureInC)
+breachType = highActiveCooling(coolingType,temperatureInC)
+breachType = medActiveCooling(coolingType,temperatureInC)
+return breachType;
 }
 
-module.exports ={inferBreach,classifyTemperatureBreach}
+function passiveCooling(coolingType,temperatureInC){
+  if('PASSIVE_COOLING')
+  return inferBreach(temperatureInC, 0, 35);
+}
+function highActiveCooling(coolingType,temperatureInC){
+  if('HI_ACTIVE_COOLING')
+  return inferBreach(temperatureInC, 0, 45);
+}
+function medActiveCooling(coolingType,temperatureInC){
+ if('MED_ACTIVE_COOLING')
+ return inferBreach(temperatureInC, 0, 40); 
+}
+
+module.exports ={inferBreach,classifyTemperatureBreach,passiveCooling,highActiveCooling,medActiveCooling}
