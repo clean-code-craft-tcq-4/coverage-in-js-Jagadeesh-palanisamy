@@ -17,7 +17,6 @@ return breachType;
 function passiveCooling(coolingType,temperatureInC){
   if(coolingType==='PASSIVE_COOLING')
   return inferBreach(temperatureInC, 0, 35);
-  }
 }
 function highActiveCooling(coolingType,temperatureInC){
   if(coolingType==='HI_ACTIVE_COOLING')
