@@ -42,9 +42,11 @@ function sendToController(breachType) {
   printStatement(toPrint);
 }
 
-function printStatement(statement){
+// _enter Yes
+function printStatement(statement){  
   console.log(statement);
   }
+
   
   function sendToEmail(breachType) {
     const recepient = 'a.b@c.com';
