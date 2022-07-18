@@ -11,13 +11,13 @@ function inferBreach(value, lowerLimit, upperLimit) {
 function classifyTemperatureBreach(coolingType, temperatureInC) {
   let breachType='';
 if(coolingType==='PASSIVE_COOLING'){
- breachType =  passiveCooling((coolingType, temperatureInC);
+ breachType =  passiveCooling(coolingType, temperatureInC);
   }
 if(coolingType==='HI_ACTIVE_COOLING'){
- breachType = highActiveCooling((coolingType, temperatureInC);
+ breachType = highActiveCooling(coolingType, temperatureInC);
 }
 if(coolingType==='MED_ACTIVE_COOLING'){
-  breachType = medActiveCooling((coolingType, temperatureInC);
+  breachType = medActiveCooling(coolingType, temperatureInC);
 }
 return breachType;
 
