@@ -20,6 +20,7 @@ function sendToController(breachType) {
 
 function printStatement(statement){  
   console.log(statement);
+   return statement
   }
 
   
