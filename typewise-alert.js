@@ -28,9 +28,9 @@ function printStatement(statement){
     const recepient = 'a.b@c.com';
     const toEmail = 'To: '+recepient;
     if (breachType == 'TOO_LOW')
-    tooLowEmail(toEmail);
+   return tooLowEmail(toEmail);
     if (breachType == 'TOO_HIGH')
-    tooHighEmail(toEmail);
+   return tooHighEmail(toEmail);
 }
 
 function tooLowEmail(toEmail){
