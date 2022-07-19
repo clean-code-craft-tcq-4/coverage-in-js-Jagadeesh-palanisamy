@@ -27,6 +27,13 @@ expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',33)).equals('NORMAL'
 expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',42)).equals('TOO_HIGH');
 
 });
+
+it('tooLowEmail', () => {
+expect(classifyInferBreach.inferBreach(-7,0,35)).equals('TOO_LOW');
+  expect(classifyInferBreach.inferBreach(33,0,35)).equals('NORMAL');
+  expect(classifyInferBreach.inferBreach(60,0,35)).equals('TOO_HIGH');
+});
+
 it('tooLowEmail', () => {
 expect(alerts.tooLowEmail('To: a.b@c.com')).equals('Hi, the temperature is too low');
 });
