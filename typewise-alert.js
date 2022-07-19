@@ -12,9 +12,9 @@ return breachType;
 
 
 function sendToController(breachType) {
-  const header = 0xfeed;
-  const toPrint =`${header}`+' '+breachType;
-  printStatement(toPrint);
+  //const header = 0xfeed;
+//  const toPrint =`${header}`+' '+breachType;
+  printStatement(breachType);
   return breachType;
 }
 
