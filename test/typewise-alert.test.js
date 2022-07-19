@@ -38,7 +38,7 @@ it('tooLowEmail', () => {
 expect(alerts.tooLowEmail('To: a.b@c.com')).equals('Hi, the temperature is too low');
 });
 it('tooHighEmail', () => {
-expect(alerts.tooLowEmail('To: a.b@c.com')).equals('Hi, the temperature is too high');
+expect(alerts.tooHighEmail('To: a.b@c.com')).equals('Hi, the temperature is too high');
 });
 
 
