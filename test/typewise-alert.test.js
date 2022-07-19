@@ -40,5 +40,11 @@ expect(alerts.tooLowEmail('To: a.b@c.com')).equals('Hi, the temperature is too l
 it('tooHighEmail', () => {
 expect(alerts.tooHighEmail('To: a.b@c.com')).equals('Hi, the temperature is too high');
 });
+it('sendToEmail', () => {
+expect(alerts.sendToEmail('TOO_HIGH')).equals('Hi, the temperature is too high');
+});
+it('sendToEmail', () => {
+expect(alerts.sendToEmail('TOO_LOW')).equals('Hi, the temperature is too low');
+});
 
 
