@@ -14,4 +14,4 @@ function classifyTemperatureBreach(coolingType, temperatureInC) {
   breachType = coolType[coolingType];
   return inferBreach(temperatureInC,breachType[0], breachType[1]);
 }
-module.exports ={classifyTemperatureBreach}
+module.exports ={classifyTemperatureBreach,classifyInferBreach}
