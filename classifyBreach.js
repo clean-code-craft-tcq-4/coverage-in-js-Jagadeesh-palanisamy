@@ -1,4 +1,4 @@
-const coolingTypeLimit = require('./enum');
+const {coolingTypeLimit} = require('./enum');
 const coolType = {
   "PASSIVE_COOLING":[0,35],
   "HI_ACTIVE_COOLING":[0,45],
@@ -17,7 +17,7 @@ function inferBreach(value, lowerLimit, upperLimit) {
 
 function classifyTemperatureBreach(coolingType, temperatureInC) {
   let breachType=[];
-  breachType = coolingTypeLimit.coolType[coolingType];
+  breachType = coolingTypeLimit[coolingType];
   return inferBreach(temperatureInC,breachType[0], breachType[1]);
 }
 module.exports ={classifyTemperatureBreach}
