@@ -15,7 +15,7 @@ function sendToController(breachType) {
   const header = 0xfeed;
   const toPrint =`${header}`+' '+breachType;
   printStatement(toPrint);
-  return toPrint;
+  return toPrint.toString();
 }
 
 function printStatement(statement){  
@@ -43,4 +43,4 @@ function tooHighEmail(toEmail){
 }
 
 
-module.exports ={checkAndAlert,tooLowEmail,tooHighEmail,sendToEmail};
+module.exports ={checkAndAlert,tooLowEmail,tooHighEmail,sendToEmail,sendToController};
