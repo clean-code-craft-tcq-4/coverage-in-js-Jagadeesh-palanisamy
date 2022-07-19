@@ -33,6 +33,9 @@ expect(classifyInferBreach.inferBreach(-7,0,35)).equals('TOO_LOW');
   expect(classifyInferBreach.inferBreach(33,0,35)).equals('NORMAL');
   expect(classifyInferBreach.inferBreach(60,0,35)).equals('TOO_HIGH');
 });
+it('sendToController',() => {
+  expect(alerts.sendToController('TOO_LOW')).equals('65261 TOO_LOW');
+});
 
 it('tooLowEmail', () => {
 expect(alerts.tooLowEmail('To: a.b@c.com')).equals('Hi, the temperature is too low');
