@@ -8,8 +8,6 @@ const breachType= breach.classifyTemperatureBreach(batteryChar, temperatureInC)
     sendToEmail(breachType);
   }
 return breachType;
-  //console.log("dgfgfg",breachType)
-  
 }
 
 
@@ -46,5 +44,5 @@ function tooHighEmail(toEmail){
 }
 
 
-module.exports =
-   {checkAndAlert,sendToController,printStatement,sendToEmail,tooLowEmail,tooHighEmail};
+// module.exports =
+//    {checkAndAlert,sendToController,printStatement,sendToEmail,tooLowEmail,tooHighEmail};
