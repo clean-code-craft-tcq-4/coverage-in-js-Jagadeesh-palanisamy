@@ -27,7 +27,7 @@ expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',33)).equals('NORMAL'
 expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',42)).equals('TOO_HIGH');
 
 });
-it('checkAndAlert', () => {
+it('classifyInferBreach', () => {
 expect(classifyInferBreach.inferBreach(10,0,35)).equals('TOO_LOW');
   expect(classifyInferBreach.inferBreach(33,0,35)).equals('NORMAL');
   expect(classifyInferBreach.inferBreach(50,0,35)).equals('TOO_HIGH');
