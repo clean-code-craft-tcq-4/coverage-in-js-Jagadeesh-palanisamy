@@ -34,13 +34,11 @@ function printStatement(statement){
 
 function tooLowEmail(toEmail){
   printStatement(toEmail);
-   printStatement('Hi, the temperature is too low');
-  return (toEmail,'Hi, the temperature is too low')
+   return printStatement('Hi, the temperature is too low');
   }
 function tooHighEmail(toEmail){
    printStatement(toEmail);
-  printStatement('Hi, the temperature is too high');
-  return (toEmail,'Hi, the temperature is too high')
+  return  printStatement('Hi, the temperature is too high');
 }
 
 
