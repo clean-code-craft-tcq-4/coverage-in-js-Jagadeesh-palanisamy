@@ -1,5 +1,5 @@
 const alerts = require('../typewise-alert');
-const classifyInferBreach = require('../classifyBreach');
+// const classifyInferBreach = require('../classifyBreach');
 const {expect} = require('chai');
 it('checkAndAlert', () => {
 expect(alerts.checkAndAlert('TO_CONTROLLER','PASSIVE_COOLING',-13)).equals('TOO_LOW');
