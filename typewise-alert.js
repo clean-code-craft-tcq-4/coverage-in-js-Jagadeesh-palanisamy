@@ -44,5 +44,4 @@ function tooHighEmail(toEmail){
 }
 
 
-// module.exports =
-//    {checkAndAlert,sendToController,printStatement,sendToEmail,tooLowEmail,tooHighEmail};
+module.exports ={checkAndAlert};
