@@ -15,12 +15,10 @@ function sendToController(breachType) {
   const header = 0xfeed;
   const toPrint =`${header}`+' '+breachType;
   printStatement(toPrint);
-  return toPrint.toString();
 }
 
 function printStatement(statement){  
   console.log(statement);
-   return statement
   }
 
   
@@ -28,19 +26,19 @@ function printStatement(statement){
     const recepient = 'a.b@c.com';
     const toEmail = 'To: '+recepient;
     if (breachType == 'TOO_LOW')
-   return tooLowEmail(toEmail);
+  tooLowEmail(toEmail);
     if (breachType == 'TOO_HIGH')
-   return tooHighEmail(toEmail);
+   tooHighEmail(toEmail);
 }
 
 function tooLowEmail(toEmail){
   printStatement(toEmail);
-   return printStatement('Hi, the temperature is too low');
+printStatement('Hi, the temperature is too low');
   }
 function tooHighEmail(toEmail){
    printStatement(toEmail);
-  return  printStatement('Hi, the temperature is too high');
+  printStatement('Hi, the temperature is too high');
 }
 
 
-module.exports ={checkAndAlert,tooLowEmail,tooHighEmail,sendToEmail,sendToController};
+module.exports ={checkAndAlert};
