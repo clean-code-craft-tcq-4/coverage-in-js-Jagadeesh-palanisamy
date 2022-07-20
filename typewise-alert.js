@@ -6,11 +6,12 @@ function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
 function alertAction(breachType, alertTarget) {
     if (alertTarget == 'TO_CONTROLLER') {
         return sendToController(breachType);
-    }
-    if (alertTarget == 'TO_EMAIL') {
+    }else if (alertTarget == 'TO_EMAIL') {
         return sendToEmail(breachType);
+    }else{
+         return false
     }
-    return false
+   
 }
 
 function sendToController(breachType) {
@@ -28,11 +29,13 @@ function printStatement(statement) {
 function sendToEmail(breachType) {
     const recepient = 'a.b@c.com';
     const toEmail = 'To: ' + recepient;
-    if (breachType == 'TOO_LOW')
+    if (breachType == 'TOO_LOW'){
         return tooLowEmail(toEmail);
-    if (breachType == 'TOO_HIGH')
+    }
+   else if (breachType == 'TOO_HIGH'){
         return tooHighEmail(toEmail);
-    return false;
+   }
+   else  return false;
 }
 function tooLowEmail(toEmail) {
     printStatement(toEmail);
