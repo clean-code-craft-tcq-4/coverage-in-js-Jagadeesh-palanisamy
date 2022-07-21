@@ -6,12 +6,9 @@ function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
 function alertAction(breachType, alertTarget) {
     if (alertTarget === 'TO_CONTROLLER') {
         return sendToController(breachType);
-    }
-    if(alertTarget === 'TO_EMAIL'){
+    } else{
         return sendToEmail(breachType);
-    }
-    return false;
-   
+    } 
 }
 
 function sendToController(breachType) {
