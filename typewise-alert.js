@@ -45,4 +45,4 @@ function tooHighEmail(toEmail) {
     printStatement('Hi, the temperature is too high');
     return true;
 }
-module.exports = { checkAndAlert };
+module.exports = { checkAndAlert,sendToController,tooLowEmail,tooHighEmail,sendToEmail };
