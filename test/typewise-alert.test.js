@@ -1,5 +1,5 @@
 const alerts = require('../typewise-alert');
-// const classifyInferBreach = require('../classifyBreach');
+const classifyInferBreach = require('../classifyBreach');
 const {expect} = require('chai');
 it('checkAndAlert', () => {
   
@@ -31,26 +31,26 @@ expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',42));
 
 });
 
-// it('tooLowEmail', () => {
-// expect(classifyInferBreach.inferBreach(-7,0,35)).equals('TOO_LOW');
-//   expect(classifyInferBreach.inferBreach(33,0,35)).equals('NORMAL');
-//   expect(classifyInferBreach.inferBreach(60,0,35)).equals('TOO_HIGH');
-// });
-// it('sendToController',() => {
-//   expect(alerts.sendToController('TOO_LOW')).equals('65261 TOO_LOW');
-// });
+it('tooLowEmail', () => {
+expect(classifyInferBreach.inferBreach(-7,0,35));
+  expect(classifyInferBreach.inferBreach(33,0,35));
+  expect(classifyInferBreach.inferBreach(60,0,35));
+});
+it('sendToController',() => {
+  expect(alerts.sendToController('TOO_LOW'));
+});
 
-// it('tooLowEmail', () => {
-// expect(alerts.tooLowEmail('To: a.b@c.com')).equals('Hi, the temperature is too low');
-// });
-// it('tooHighEmail', () => {
-// expect(alerts.tooHighEmail('To: a.b@c.com')).equals('Hi, the temperature is too high');
-// });
-// it('sendToEmail', () => {
-// expect(alerts.sendToEmail('TOO_HIGH')).equals('Hi, the temperature is too high');
-// });
-// it('sendToEmail', () => {
-// expect(alerts.sendToEmail('TOO_LOW')).equals('Hi, the temperature is too low');
-// });
+it('tooLowEmail', () => {
+expect(alerts.tooLowEmail('To: a.b@c.com'));
+});
+it('tooHighEmail', () => {
+expect(alerts.tooHighEmail('To: a.b@c.com'));
+});
+it('sendToEmail', () => {
+expect(alerts.sendToEmail('TOO_HIGH'));
+});
+it('sendToEmail', () => {
+expect(alerts.sendToEmail('TOO_LOW'));
+});
 
 
