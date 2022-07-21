@@ -31,7 +31,7 @@ expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',42));
 
 });
 
-it('tooLowEmail', () => {
+it('inferBreach', () => {
 expect(classifyInferBreach.inferBreach(-7,0,35));
   expect(classifyInferBreach.inferBreach(33,0,35));
   expect(classifyInferBreach.inferBreach(60,0,35));
