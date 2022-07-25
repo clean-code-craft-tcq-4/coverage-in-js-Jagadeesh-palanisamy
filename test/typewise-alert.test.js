@@ -1,6 +1,27 @@
-const alerts = require('../typewise-alert');
+const alerts =require('./../src/typeWiseAlert')
 const {expect} = require('chai');
+it('checkAndAlert', () => {
+expect(alerts.checkAndAlert('TO_CONTROLLER','PASSIVE_COOLING',-13));
+expect(alerts.checkAndAlert('TO_CONTROLLER','PASSIVE_COOLING',33));
+expect(alerts.checkAndAlert('TO_CONTROLLER','PASSIVE_COOLING',40));
 
-it('infers a value lower than the minimum as TOO_LOW', () => {
-  expect(alerts.inferBreach(20, 50, 100)).equals('TOO_LOW');
+expect(alerts.checkAndAlert('TO_EMAIL','PASSIVE_COOLING',-13));
+expect(alerts.checkAndAlert('TO_EMAIL','PASSIVE_COOLING',33));
+expect(alerts.checkAndAlert('TO_EMAIL','PASSIVE_COOLING',40));
+
+expect(alerts.checkAndAlert('TO_CONTROLLER','HI_ACTIVE_COOLING',-13));
+expect(alerts.checkAndAlert('TO_CONTROLLER','HI_ACTIVE_COOLING',33));
+expect(alerts.checkAndAlert('TO_CONTROLLER','HI_ACTIVE_COOLING',50));
+
+expect(alerts.checkAndAlert('TO_EMAIL','HI_ACTIVE_COOLING',-13));
+expect(alerts.checkAndAlert('TO_EMAIL','HI_ACTIVE_COOLING',33));
+expect(alerts.checkAndAlert('TO_EMAIL','HI_ACTIVE_COOLING',50));
+
+expect(alerts.checkAndAlert('TO_CONTROLLER','MED_ACTIVE_COOLING',-13));
+expect(alerts.checkAndAlert('TO_CONTROLLER','MED_ACTIVE_COOLING',33));
+expect(alerts.checkAndAlert('TO_CONTROLLER','MED_ACTIVE_COOLING',42));
+
+expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',-13));
+expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',33));
+expect(alerts.checkAndAlert('TO_EMAIL','MED_ACTIVE_COOLING',42));
 });
