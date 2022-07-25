@@ -15,7 +15,6 @@ function alertAction(breachType, alertTarget) {
         return emailAlert.sendToEmail(breachType);
     } 
 }
-checkAndAlert('sendToController','PASSIVE_COOLING',-13)
- checkAndAlert('TO_EMAIL','PASSIVE_COOLING',-13)
+
 
 module.exports ={checkAndAlert,alertAction}
